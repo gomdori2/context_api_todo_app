@@ -9,8 +9,11 @@ const TitleWrapStyle = styled.div`
 const LabelStyle = styled.h1`
   margin-top: 0;
 `;
+interface Props {
+  label: string;
+}
 
-const Title = ({ label }) => {
+const Title = ({ label }: Props) => {
   return (
     <TitleWrapStyle>
       <LabelStyle>{label}</LabelStyle>

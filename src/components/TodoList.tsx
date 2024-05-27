@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
-import React, { useContext } from "react";
-import TodoItem from "./TodoItem";
 import { TodoListContext } from "contexts/TodoListContext";
+import { useContext } from "react";
+import TodoItem from "./TodoItem";
 
 const TodoListWrapStyle = styled.div`
   display: flex;

@@ -2,7 +2,6 @@ import styled from "@emotion/styled";
 import DataView from "components/DataView";
 import InputContainer from "components/InputContainer";
 import { TodoListContextProvider } from "contexts/TodoListContext";
-import { useState } from "react";
 
 const WrapStyle = styled.div`
   height: 100vh;

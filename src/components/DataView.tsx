@@ -15,6 +15,7 @@ const DataViewWrapStyle = styled.div`
 const DataView = () => {
   return (
     <DataViewWrapStyle>
+      {/* 타입스크립트로 변경 시 매개변수가 없을 때도 잡아줌. */}
       <Title label="할 일 목록" />
       <TodoList />
     </DataViewWrapStyle>

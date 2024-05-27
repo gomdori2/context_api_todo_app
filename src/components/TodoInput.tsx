@@ -5,6 +5,10 @@ import TextInput from "./TextInput";
 import Title from "./Title";
 import { TodoListContext } from "contexts/TodoListContext";
 
+interface Props {
+  onClose: () => void;
+}
+
 const WrapStyle = styled.div`
   position: absolute;
   top: 0;
@@ -40,7 +44,7 @@ const InputInnerStyle = styled.div`
   gap: 16px;
 `;
 
-const TodoInput = ({ onClose }) => {
+const TodoInput = ({ onClose }: Props) => {
   const { onAdd } = useContext(TodoListContext);
   const [todo, setTodo] = useState("");
   const [mesaage, setMessage] = useState("");

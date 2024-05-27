@@ -1,7 +1,17 @@
 import styled from "@emotion/styled";
-import React from "react";
 
-const ButtonStyle = styled.button`
+interface ButtonStyleProps {
+  color: string;
+}
+// 옵셔널체이닝
+// onClick?
+// color? 들어올수도 안들어올수도 있으니
+interface Props {
+  label: string;
+  onClick?: () => void;
+  color?: string;
+}
+const ButtonStyle = styled.button<ButtonStyleProps>`
   border: 0;
   color: #fff;
   background-color: ${props => props.color};
@@ -17,8 +27,9 @@ const ButtonStyle = styled.button`
     box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.2);
   }
 `;
+
 // 초기값 설정...
-const Button = ({ label, onClick, color = "#ff5722" }) => {
+const Button = ({ label, onClick, color = "#ff5722" }: Props) => {
   return (
     <ButtonStyle onClick={onClick} color={color}>
       {label}

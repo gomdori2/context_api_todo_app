@@ -1,6 +1,10 @@
-import React from "react";
-import Button from "./Button";
 import styled from "@emotion/styled";
+import Button from "./Button";
+
+interface Props {
+  label: string;
+  onDelete?: () => void;
+}
 
 const TodoItemWrapStyle = styled.div`
   display: flex;
@@ -18,7 +22,7 @@ const LabelStyle = styled.div`
   font-size: 1.2rem;
   margin-right: 16px;
 `;
-const TodoItem = ({ label, onDelete }) => {
+const TodoItem = ({ label, onDelete }: Props) => {
   return (
     <TodoItemWrapStyle>
       <LabelStyle>{label}</LabelStyle>
