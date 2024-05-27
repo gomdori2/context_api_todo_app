@@ -1,46 +1,65 @@
-# Getting Started with Create React App
+# 1. State와 Props로 할일 목록 앱 개발
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- 실제로는 이렇게까지 복잡하게 컴포넌트 구성하지 않습니다.
+- ContextApi 실습을 위해 구조를 이렇게 해볼께요.
 
-## Available Scripts
+## 1.1. 컴포넌트 구조
 
-In the project directory, you can run:
+- App
+  - TodoList Data
+    - DataView (UI)
+      - Title
+      - TodoList
+        - TodoItem
+  - Todo Data
+    - Input
+      - TodoInput
+        - TextInput
+        - AddButton
+      - InputButton
 
-### `npm start`
+### 1.1.1. 컴포넌트 분리 기준
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- 이 구조는 프로젝트 마다 달라질 수 있다.
+- pagesComponents : 상태관리만 할 수 있도록 하자
+  - pages 폴더 > 화면
+  - UiComponents : 화면을 보여주는 UI 로직만 가지도록 하자.
+    - components 폴더 > 해당 화면에 들어가는 컴포넌트
+    - common > 공통으로 사용할 components를 넣는곳
+- ApiComponents : API를 호출하는 비즈니스 로직만 가지도록 해보자.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+  - api폴더 > api
+  - 빽엔드에 호출해 오는 데이터들 코드들을 집어 넣어 놓는곳.
 
-### `npm test`
+- PageComponent : 데이터의 상태관리를 할 수 있도록 해보자
+- UiComponent : 화면 또는 페이지를 구성하는 UI로직을 가지도록 해보자
+- ApiComponent : API로직을 분리 해보자
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### NoSQL
 
-### `npm run build`
+- 프론트 일 경우 DBMS 가 아니라
+- NoSQL을 사용한다함.
+  - ex) startUp 회사들이 보통 사용한다함.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+###
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- 소비자의 니즈(아이디어)\_소비자도 모르는 니즈(잠재적인 니즈)
+  ↓
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+  ↓
 
-### `npm run eject`
+C : create
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- 생성
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+R : read
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- 읽기
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+U : update
 
-## Learn More
+- 수정
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+D : delete
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- 삭제
